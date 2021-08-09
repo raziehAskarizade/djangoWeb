@@ -1,0 +1,24 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles page</title>
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+</head>
+
+<body>
+    <p>سلام <br> این صفحه ارتیکلز است</p>
+    {%for counter in articles %}
+    <div>
+        <p>{{counter.title}}</p>
+        <h3>{{counter.snipet}}</h3>
+        <h5>{{counter.time}}</h5>
+    </div>
+    {%endfor%}
+</body>
+
+</html>
