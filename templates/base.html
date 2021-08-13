@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block link%}
+    <link rel="stylesheet" href="{%static 'styles.css'%}">
+    {%endblock%}
+    <title>
+        {%block title%}
+        x
+        {%endblock%}
+    </title>
+</head>
+
+<body>
+
+    </div>
+    <header>
+        <nav>
+            <ul>
+                {%if user.is_authenticated%}
+                <li>
+                    <form class="logout-list" action="{%url 'accounts:logout' %}" method="post">
+                        {%csrf_token%}
+                        <button type="submit">log out</button>
+                    </form>
+                </li>
+                <li>
+                    <a class="highlight" href="{%url 'article:create'%}">create new article</a>
+                </li>
+                {%else%}
+                <li>
+                    <a href="{%url 'accounts:login'%}">login</a>
+                </li>
+                <li>
+                    <a href="{%url 'accounts:signup'%}">sign up</a>
+                </li>
+                {%endif%}
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        {%block body%}
+
+        {%endblock%}
+</body>
+
+</html>

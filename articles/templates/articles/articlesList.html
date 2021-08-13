@@ -1,24 +1,26 @@
+{% extends 'base.html'%}
 {%load static%}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles page</title>
-    <link rel="stylesheet" href="{%static 'style.css'%}">
-</head>
+{% block title%}
+articles
+{%endblock%}
 
-<body>
-    <p>سلام <br> این صفحه ارتیکلز است</p>
+{%block link%}
+<link rel="stylesheet" href="{%static 'styles.css'%}">
+{%endblock%}
+
+{%block body%}
+
+<p>Article List</p>
+<div class="articles">
     {%for counter in articles %}
-    <div>
-        <p>{{counter.title}}</p>
+    <div class="article">
+        <a href="{%url 'article:detail' slug=counter.slug %}">{{counter.title}}</a>
         <h3>{{counter.snipet}}</h3>
         <h5>{{counter.time}}</h5>
+        <p class="author">written by {{counter.author}}</p>
     </div>
     {%endfor%}
-</body>
+</div>
 
-</html>
+{%endblock%}

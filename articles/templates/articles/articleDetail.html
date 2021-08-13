@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+{{textBody.title}}
+{%endblock%}
+
+{%block link%}
+<link rel="stylesheet" href="{%static 'styleDetail.css'%}">
+{%endblock%}
+
+{%block body%}
+<div class="articleDetail">
+    <div class="article">
+        <img src="{{textBody.image.url}}" alt="">
+        <h2>{{textBody.title}}</h2>
+        <p>{{textBody.body}}</p>
+        <h4>{{textBody.author}</h4>
+        <h5>{{textBody.time}}</h5>
+    </div>
+</div>
+{%endblock%}
